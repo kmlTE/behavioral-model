@@ -2,4 +2,4 @@ if COND_THRIFT
 MAYBE_SECONDARY_TARGETS = simple_router l2_switch
 endif
 
-SUBDIRS = $(MAYBE_SECONDARY_TARGETS) simple_switch
+SUBDIRS = $(MAYBE_SECONDARY_TARGETS) simple_switch simple_switch_sp simple_switch_sp_bytes simple_switch_sp_bytes_aq simple_switch_sp_bytes_dp_rate simple_switch_sp_bytes_aq_dp_rate simple_switch_rl_sp_drr simple_switch_rl_sp_drr_orig

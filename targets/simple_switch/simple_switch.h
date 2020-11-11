@@ -99,11 +99,15 @@ class SimpleSwitch : public Switch {
     return get_mirroring_mapping(mirror_id, port);
   }
 
+  int set_egress_priority_queue_depth(int port, size_t priority, const size_t depth_pkts) { return 0; }
   int set_egress_queue_depth(size_t port, const size_t depth_pkts);
   int set_all_egress_queue_depths(const size_t depth_pkts);
 
+  int set_egress_priority_queue_rate(int port, size_t priority, const uint64_t rate_Bps) { return 0; }
   int set_egress_queue_rate(size_t port, const uint64_t rate_pps);
   int set_all_egress_queue_rates(const uint64_t rate_pps);
+
+  int set_egress_priority_queue_quantum(int port, size_t priority,  const uint64_t quantum) { return 0; }
 
   // returns the number of microseconds elapsed since the switch started
   uint64_t get_time_elapsed_us() const;

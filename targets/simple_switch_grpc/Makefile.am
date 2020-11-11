@@ -2,9 +2,11 @@ ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS} -I m4
 
 SUBDIRS = . tests
 
+SS_TARGET_PATH = simple_switch_rl_sp_drr_orig
+
 AM_CPPFLAGS += \
 -I$(srcdir)/../../include \
--I$(srcdir)/../simple_switch \
+-I$(srcdir)/../$(SS_TARGET_PATH) \
 -I$(srcdir)/../../PI \
 -isystem$(srcdir)/../../third_party/spdlog
 
@@ -39,7 +41,7 @@ switch_sysrepo.h switch_sysrepo.cpp
 endif
 
 libsimple_switch_grpc_la_LIBADD = \
-$(builddir)/../simple_switch/libsimpleswitch.la \
+$(builddir)/../$(SS_TARGET_PATH)/libsimpleswitch.la \
 $(builddir)/../../PI/libbmpi.la \
 libbm_grpc_dataplane.la \
 -lpifeproto -lpigrpcserver -lpi \
@@ -49,7 +51,7 @@ if WITH_THRIFT
 libsimple_switch_grpc_la_LIBADD += \
 $(builddir)/../../src/bm_runtime/libbmruntime.la \
 $(builddir)/../../thrift_src/libruntimestubs.la \
-$(builddir)/../simple_switch/libsimpleswitch_thrift.la
+$(builddir)/../$(SS_TARGET_PATH)/libsimpleswitch_thrift.la
 endif
 
 # dataplane_interface.proto
